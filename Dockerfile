@@ -1,7 +1,9 @@
 FROM python:3.8-slim-buster
+RUN mkdir /project
 COPY requirements.txt requirements.txt
-RUN pip install requirements.txt
+RUN pip install -r requirements.txt
 COPY objects/ objects/
-COPY scripts/ scripts/
-RUN chmod +x /scripts/entrypoint.sh
-ENTRYPOINT ["scripts/entrypoint.sh"]
+COPY scripts/entrypoint.sh entrypoint.sh
+COPY main.py main.py
+RUN chmod +x entrypoint.sh
+ENTRYPOINT ["bash", entrypoint.sh"]
