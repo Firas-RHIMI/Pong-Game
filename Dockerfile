@@ -6,4 +6,4 @@ COPY objects/ objects/
 COPY scripts/entrypoint.sh entrypoint.sh
 COPY main.py main.py
 RUN chmod +x entrypoint.sh
-ENTRYPOINT ["bash", entrypoint.sh"]
+ENTRYPOINT ["bash", "entrypoint.sh"]
