@@ -50,7 +50,7 @@ class Ball:
                     self.velocity_y *= -1
                 deviation_factor = self.x - paddle.x_center
                 self.velocity_x = deviation_factor/10
-                pygame.mixer.Sound.play(pygame.mixer.Sound("../objects/collision_effect.wav"))
+                pygame.mixer.Sound.play(pygame.mixer.Sound("objects/collision_effect.wav"))
 
     def border_collision(self, border):
         if self.y_min > border.up_limit and self.y_max < border.low_limit:
