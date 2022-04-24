@@ -1,3 +1,3 @@
 #!/bin/bash
 set -xe
-python -main.py
+python main.py
