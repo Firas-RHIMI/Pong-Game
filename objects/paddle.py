@@ -1,6 +1,6 @@
 import pygame
 
-VELOCITY = 6
+VELOCITY = 5
 WHITE = (255, 255, 255)
 
 
@@ -13,10 +13,18 @@ class Paddle:
         self.velocity = VELOCITY
         self.size = size
         self.score = 0
+        self.nb_hits = 0
 
     @property
     def x_center(self):
         return (2 * self.x + self.size[0]) // 2
+
+    @property
+    def y_limit(self):
+        if self.y == 0:
+            return self.size[1]
+        else:
+            return self.y
 
     @property
     def x_limit(self):
@@ -47,6 +55,19 @@ class Paddle:
                 self.move(right=False)
             if keys[pygame.K_d] and self.x_limit < border.right_limit:
                 self.move(right=True)
+
+    def agent_interaction(self, agent_decision, border, is_lower_paddle):
+        if is_lower_paddle:
+            if agent_decision == "left" and self.x > border.left_limit:
+                self.move(right=False)
+            if agent_decision == "right" and self.x_limit < border.right_limit:
+                self.move(right=True)
+        else:
+            if agent_decision == "right" and self.x > border.left_limit:
+                self.move(right=False)
+            if agent_decision == "left" and self.x_limit < border.right_limit:
+                self.move(right=True)
+
 
 
 
