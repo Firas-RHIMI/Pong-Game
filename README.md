@@ -14,7 +14,7 @@ The goal of the game is to score more goals than your opponent by moving your pa
 
 
 
-The easiest way to run the game if you have python installed is to install the Pygame module and the neat-python module (only necessary for the single player mode) and then run main.py : 
+The easiest way to run the game if you have python installed is to install the Pygame module and the neat-python module and then run main.py : 
  ```
   $ pip install pygame
   $ pip install neat-python
